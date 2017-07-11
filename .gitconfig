@@ -1,0 +1,15 @@
+[user]
+  email = jefferson.willian.monteiro@gmail.com
+  name = Jefferson Monteiro
+[difftool]
+  prompt = false
+[alias]
+  a = add
+  c = commit
+  d = diff
+  l = log
+  s = status
+  ps = push
+  pl = pull
+[core]
+  editor = vim
