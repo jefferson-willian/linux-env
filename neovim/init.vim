@@ -14,7 +14,8 @@ set incsearch
 set showmatch
 
 " Show cursor line
-set cursorline
+" ! cursorline is causing slow performance !
+" set cursorline
 
 " Make backspace work like most other app
 set backspace=2
@@ -28,11 +29,8 @@ set nowb
 set noswapfile
 
 " Indentation
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set smarttab
-filetype plugin indent on
+set expandtab shiftwidth=2 softtabstop=2 smarttab
+"filetype plugin indent on
 
 " Vim default update time
 if !has('nvim')
@@ -48,6 +46,9 @@ set hidden
 " Enable syntax
 syntax enable
 
+" Don't show -- INSERT -- text because vim-powerline already show this.
+set noshowmode
+
 " Necessary for airline in vim.
 if !has('nvim')
   set laststatus=2
@@ -55,10 +56,10 @@ endif
 
 " Don't save netrwhist files.
 let g:netrw_dirhistmax=0
-" ----------- MAPS ----------- "
 
-noremap <C-left> :bp <enter>
-noremap <C-right> :bn <enter>
+" ----------- MAPS ----------- "
+nnoremap <C-left> :bp <enter>
+nnoremap <C-right> :bn <enter>
 map <C-y> "+y
 map <C-i> "+p
 
