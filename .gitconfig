@@ -1,14 +1,17 @@
 [user]
   email = jefferson.willian.monteiro@gmail.com
   name = Jefferson Monteiro
+[diff]
+  tool = vimdiff
 [difftool]
   prompt = false
 [alias]
-  a = add
-  c = commit
-  d = diff
-  l = log
-  s = status
+  a  = add
+  c  = commit
+  d  = diff
+  l  = log
+  s  = status
+  dt = difftool
   ps = push
   pl = pull
 [core]
