@@ -30,7 +30,7 @@ set noswapfile
 
 " Indentation
 set expandtab shiftwidth=2 softtabstop=2 smarttab
-"filetype plugin indent on
+filetype plugin indent on
 
 " Vim default update time
 if !has('nvim')
@@ -74,8 +74,8 @@ colorscheme gruvbox
 
 " vim-indentLine
 let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_char = '┆'
-let g:indentLine_first_char = '┆'
+let g:indentLine_char = '-'
+let g:indentLine_first_char = '|'
 
 
 " vim-ctrlp
@@ -90,3 +90,6 @@ let g:airline_powerline_fonts=1
 let g:airline_extensions = ['ctrlp', 'tabline']
 let g:airline_section_c = ''
 let g:airline_section_z = ''
+
+" remove latex symbols
+let g:tex_conceal = ""
