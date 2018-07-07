@@ -13,10 +13,6 @@ set incsearch
 " Highlight brackets when cursor is over them
 set showmatch
 
-" Show cursor line
-" ! cursorline is causing slow performance !
-" set cursorline
-
 " Make backspace work like most other app
 set backspace=2
 
@@ -60,8 +56,6 @@ let g:netrw_dirhistmax=0
 " ----------- MAPS ----------- "
 nnoremap <C-left> :bp <enter>
 nnoremap <C-right> :bn <enter>
-map <C-y> "+y
-map <C-i> "+p
 
 " Gruvbox colorscheme
 if !has('nvim')
