@@ -2,9 +2,11 @@
   email = jefferson.willian.monteiro@gmail.com
   name = Jefferson Monteiro
 [diff]
-  tool = vimdiff
+  tool = icdiff
 [difftool]
   prompt = false
+[difftool "icdiff"]
+    cmd = icdiff -HN "$LOCAL" "$REMOTE"
 [alias]
   a  = add
   c  = commit
@@ -14,5 +16,6 @@
   dt = difftool
   ps = push
   pl = pull
+  st-ls = !"git log | grep git-subtree-dir | tr -d ' ' | cut -d \":\" -f2 | sort | uniq"
 [core]
   editor = vim
