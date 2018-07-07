@@ -54,8 +54,8 @@ endif
 let g:netrw_dirhistmax=0
 
 " ----------- MAPS ----------- "
-nnoremap <C-left> :bp <enter>
-nnoremap <C-right> :bn <enter>
+nnoremap <S-left> :bp <enter>
+nnoremap <S-right> :bn <enter>
 
 " Gruvbox colorscheme
 if !has('nvim')
