@@ -85,6 +85,13 @@ let g:airline_extensions = ['ctrlp', 'tabline']
 let g:airline_section_c = ''
 let g:airline_section_z = ''
 
+" NERDTree
+"
+" Sync current directory to current opened file.
+autocmd BufEnter * lcd %:p:h
+" Toggle
+map <C-n> :NERDTreeToggle<CR>
+
 " remove latex symbols
 let g:tex_conceal = ""
 
