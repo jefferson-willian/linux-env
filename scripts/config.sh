@@ -50,3 +50,12 @@ config::setup_tmux () {
 config::setup_git () {
   config::make_link ~/.gitconfig ../git/gitconfig
 }
+
+config::setup_bash () {
+  config::make_link ~/.bashrc_user ../bash/bashrc
+
+  if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bash$") ]] ; then
+    log::info "Appending to ~/.bashrc"
+    echo -e "\n# Load user bash\nif [[ -z ~/.bashrc_user ]] ; then\n  source ~/.bashrc_user;\nfi" >> ~/.bashrc
+  fi
+}

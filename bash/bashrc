@@ -18,4 +18,3 @@ function hstrwsl {
   READLINE_POINT=${#READLINE_LINE}
 }
 if [[ $- =~ .*i.* ]]; then bind -x '"\C-r": "hstrwsl"'; fi
-
