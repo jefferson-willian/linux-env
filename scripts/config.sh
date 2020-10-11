@@ -41,6 +41,10 @@ config::make_link () {
 
 config::setup_vim () {
   config::make_link ~/.vimrc ../vim/init.vim
+
+  log::info "Installing vim plugins..."
+  vim -c ":PlugInstall"
+  log::info "Done"
 }
 
 config::setup_tmux () {
@@ -49,6 +53,7 @@ config::setup_tmux () {
 
 config::setup_git () {
   config::make_link ~/.gitconfig ../git/gitconfig
+  config::make_link ~/.vim ../vim
 }
 
 config::setup_bash () {

@@ -1,5 +1,15 @@
 " Load Plugins
-execute pathogen#infect()
+"execute pathogen#infect()
+
+" Load Plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'kien/ctrlp.vim'
+
+" Initialize plugin system
+call plug#end()
 
 " Set to auto read when the file is changed from the outside
 set autoread
@@ -67,9 +77,9 @@ let g:gruvbox_contrast_light="soft"
 colorscheme gruvbox
 
 " vim-indentLine
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_char = '-'
-let g:indentLine_first_char = '|'
+"let g:indentLine_showFirstIndentLevel = 1
+"let g:indentLine_char = '-'
+"let g:indentLine_first_char = '|'
 
 
 " vim-ctrlp
