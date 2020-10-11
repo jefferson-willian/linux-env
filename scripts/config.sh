@@ -46,3 +46,7 @@ config::setup_vim () {
 config::setup_tmux () {
   config::make_link ~/.tmux.conf ../tmux/tmux.conf
 }
+
+config::setup_git () {
+  config::make_link ~/.gitconfig ../git/gitconfig
+}

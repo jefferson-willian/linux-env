@@ -13,6 +13,7 @@ set -e
 
 packages::install_packages
 
+config::setup_git
 config::setup_vim
 config::setup_tmux
 
