@@ -19,4 +19,3 @@
   st-ls = !"git log | grep git-subtree-dir | tr -d ' ' | cut -d \":\" -f2 | sort | uniq"
 [core]
   editor = vim
-[credential]
