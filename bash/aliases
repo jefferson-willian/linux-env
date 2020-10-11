@@ -1,1 +1,1 @@
-
+alias git-remmber='git config --global credential.helper store'
