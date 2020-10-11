@@ -40,7 +40,7 @@ config::make_link () {
 }
 
 config::setup_vim () {
-  config::make_link ~/.vimrc ../neovim/init.vim
+  config::make_link ~/.vimrc ../vim/init.vim
 }
 
 config::setup_tmux () {
