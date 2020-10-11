@@ -1,15 +1,5 @@
 " Load Plugins
-"execute pathogen#infect()
-
-" Load Plugins
-call plug#begin('~/.vim/plugged')
-
-Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'kien/ctrlp.vim'
-
-" Initialize plugin system
-call plug#end()
+source ~/.vim/plugin.vim
 
 " Set to auto read when the file is changed from the outside
 set autoread

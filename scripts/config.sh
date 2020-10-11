@@ -41,10 +41,18 @@ config::make_link () {
 
 config::setup_vim () {
   config::make_link ~/.vimrc ../vim/init.vim
+  config::make_link ~/.vim ../vim
 
-  log::info "Installing vim plugins..."
-  vim -c ":PlugInstall"
-  log::info "Done"
+  log::info "Getting vim-plug"
+  readonly VIM_PLUG=~/.vim/autoload/plug.vim
+  curl -SsfLo $VIM_PLUG --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  if $(util::file_not_exist $VIM_PLUG) ; then
+    log::severe "$VIM_PLUG file missing!"
+  fi
+  
+  log::info "Installing vim plugins"
+  vim -u $(util::get_path ../vim/plugin.vim) -c ":PlugUpdate"
 }
 
 config::setup_tmux () {
@@ -53,7 +61,6 @@ config::setup_tmux () {
 
 config::setup_git () {
   config::make_link ~/.gitconfig ../git/gitconfig
-  config::make_link ~/.vim ../vim
 }
 
 config::setup_bash () {

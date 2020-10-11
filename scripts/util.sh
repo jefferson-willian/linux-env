@@ -19,6 +19,10 @@ util::file_exists () {
   [[ -f $1 ]]
 }
 
+util::file_not_exist () {
+  [[ ! -f $1 ]]
+}
+
 util::directory_exists () {
   [[ -d $1 ]]
 }
