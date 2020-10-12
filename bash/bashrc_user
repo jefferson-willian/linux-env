@@ -5,10 +5,9 @@ source ~/GitHub/dotfiles/scripts/gruvbox.sh
 export HSTR_CONFIG=hicolor,raw-history-view,prompt-bottom
 export HSTR_PROMPT="$ "
 shopt -s histappend              # append new history items to .bash_history
-export HISTCONTROL=ignorespace   # leading space hides commands from history
-export HISTFILESIZE=10000        # increase history file size (default is 500)
-export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
-# ensure synchronization between Bash memory and history file
+export HISTCONTROL=ignoreboth:erasedups
+export HISTFILESIZE=100000
+export HISTSIZE=${HISTFILESIZE}
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 # if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
 function hstrwsl {
