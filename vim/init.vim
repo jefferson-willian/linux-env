@@ -56,6 +56,7 @@ let g:netrw_dirhistmax=0
 " ----------- MAPS ----------- "
 nnoremap <S-left> :bp <enter>
 nnoremap <S-right> :bn <enter>
+nnoremap <C-P> :Files <enter>
 
 " Gruvbox colorscheme
 if !has('nvim')
@@ -66,18 +67,8 @@ let g:gruvbox_contrast_dark="soft"
 let g:gruvbox_contrast_light="soft"
 colorscheme gruvbox
 
-" vim-indentLine
-"let g:indentLine_showFirstIndentLevel = 1
-"let g:indentLine_char = '-'
-"let g:indentLine_first_char = '|'
-
-
-" vim-ctrlp
-let g:ctrlp_open_new_file = 'v'
-let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules',
-  \ 'file': '.*.o$'
-  \ }
+" Empty value to disable preview window altogether
+let g:fzf_preview_window = ''
 
 " vim-airline
 let g:airline_powerline_fonts=1
