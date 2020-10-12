@@ -18,3 +18,5 @@ function hstrwsl {
   READLINE_POINT=${#READLINE_LINE}
 }
 if [[ $- =~ .*i.* ]]; then bind -x '"\C-r": "hstrwsl"'; fi
+
+export FZF_DEFAULT_COMMAND='rg --type-add "png:*.png" --type-not png --files"
