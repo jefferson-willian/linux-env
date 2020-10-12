@@ -74,7 +74,7 @@ config::setup_git () {
 }
 
 config::setup_bash () {
-  config::make_link ~/.bashrc_user ../bash/bashrc
+  config::make_link ~/.bashrc_user ../bash/bashrc_user
 
   if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bash$") ]] ; then
     log::info "Appending to ~/.bashrc"
