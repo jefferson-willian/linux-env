@@ -54,7 +54,8 @@ config::setup_vim () {
   fi
   
   log::info "Installing vim plugins"
-  vim -u $(util::get_path ../vim/plugin.vim) +PlugClean! +PlugUpdate +qall
+  vim -u $(util::get_path ../vim/plugin.vim) +PlugUpdate +qall
+  vim -u $(util::get_path ../vim/plugin.vim) +PlugClean! +qall
 }
 
 config::setup_tmux () {
