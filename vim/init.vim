@@ -72,12 +72,10 @@ let g:fzf_preview_window = ''
 
 " vim-airline
 let g:airline_powerline_fonts=1
-let g:airline_extensions = ['ctrlp', 'tabline']
+let g:airline_extensions = ['tabline']
 let g:airline_section_c = ''
 let g:airline_section_z = ''
 
-" NERDTree
-"
 " Sync current directory to current opened file.
 autocmd BufEnter * lcd %:p:h
 " Toggle
