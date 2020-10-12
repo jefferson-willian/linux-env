@@ -6,7 +6,7 @@
 [difftool]
   prompt = false
 [difftool "icdiff"]
-    cmd = icdiff -HN "$LOCAL" "$REMOTE"
+  cmd = icdiff -HN "$LOCAL" "$REMOTE"
 [alias]
   a  = add
   c  = commit
@@ -19,3 +19,5 @@
   st-ls = !"git log | grep git-subtree-dir | tr -d ' ' | cut -d \":\" -f2 | sort | uniq"
 [core]
   editor = vim
+[credential]
+  helper = store
