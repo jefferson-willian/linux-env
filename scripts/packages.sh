@@ -3,10 +3,12 @@
 # List of packages to be installed.
 readonly PACKAGES=( \
   git \
-  neovim \
+  vim \
   tmux \
   hstr \
   fonts-hack-ttf \
+  ripgrep \
+  fzf \
 )
 
 function packages::install_packages() {
