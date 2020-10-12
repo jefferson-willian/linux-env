@@ -40,8 +40,9 @@ config::make_link () {
 }
 
 config::setup_vim () {
-  config::make_link ~/.vimrc ../vim/init.vim
-  config::make_link ~/.vim ../vim
+  mkdir -p ~/.vim
+  config::make_link ~/.vimrc ../vim/vimrc.vim
+  config::make_link ~/.vim/plugin.vim ../vim/plugin.vim
 
   log::info "Getting vim-plug"
   readonly VIM_PLUG=~/.vim/autoload/plug.vim
