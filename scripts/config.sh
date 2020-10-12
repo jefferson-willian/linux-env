@@ -57,6 +57,12 @@ config::setup_vim () {
 
 config::setup_tmux () {
   config::make_link ~/.tmux.conf ../tmux/tmux.conf
+  rm -rf ~/.tmux/plugins
+  mkdir -p ~/.tmux/plugins/tpm
+  log::info "Getting tmux-tpm"
+  git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  log::info "Installing tmux plugins"
+  ~/.tmux/plugins/tpm/bindings/install_plugins > /dev/null
 }
 
 config::setup_git () {
@@ -68,6 +74,6 @@ config::setup_bash () {
 
   if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bash$") ]] ; then
     log::info "Appending to ~/.bashrc"
-    echo -e "\n# Load user bash\nif [[ -z ~/.bashrc_user ]] ; then\n  source ~/.bashrc_user;\nfi" >> ~/.bashrc
+    echo -e "\n# Load user bash\nif [[ -f ~/.bashrc_user ]] ; then\n  . ~/.bashrc_user\nfi" >> ~/.bashrc
   fi
 }

@@ -1,5 +1,5 @@
 # Fix gruvbox color scheme.
-source ~/GitHub/dotfiles/neovim/bundle/gruvbox/gruvbox_256palette.sh
+source ~/GitHub/dotfiles/vim/bundle/gruvbox/gruvbox_256palette.sh
 
 # HSTR configuration.
 export HSTR_CONFIG=hicolor,raw-history-view,prompt-bottom
