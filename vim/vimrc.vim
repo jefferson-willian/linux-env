@@ -33,8 +33,14 @@ if !has('nvim')
   set updatetime=100
 endif
 
-" Visual bar for 80 characters
+" Default visual bar.
 set colorcolumn=80
+
+" Visual bar for each filetype.
+augroup colorcolumn100
+  autocmd!
+  autocmd FileType soy,java set colorcolumn=100
+augroup END
 
 " Allow change buffers without saving
 set hidden
