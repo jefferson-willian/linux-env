@@ -54,7 +54,7 @@ config::setup_vim () {
   fi
   
   log::info "Installing vim plugins"
-  vim -u $(util::get_path ../vim/plugin.vim) +PlugUpdate +qall
+  vim -u $(util::get_path ../vim/plugin.vim) +PlugClean! +PlugUpdate +qall
 }
 
 config::setup_tmux () {
@@ -64,9 +64,9 @@ config::setup_tmux () {
   log::info "Getting tmux-tpm"
   git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   log::info "Installing tmux plugins"
-  tmux -f /dev/null new-session -d -s tmp-setup-session
-  ~/.tmux/plugins/tpm/bindings/install_plugins > /dev/null
-  tmux kill-session -t tmp-setup-session
+  ~/.tmux/plugins/tpm/bin/clean_plugins > /dev/null
+  ~/.tmux/plugins/tpm/bin/install_plugins > /dev/null
+  ~/.tmux/plugins/tpm/bin/update_plugins all > /dev/null
 }
 
 config::setup_git () {
