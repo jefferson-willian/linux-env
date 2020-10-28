@@ -13,12 +13,10 @@ readonly PACKAGES=( \
 
 function packages::install_packages() {
   for package in "${PACKAGES[@]}"; do
-    if $(util::is_package_installed $package); then
-      log::info "$package is already installed!"
-    else
-      log::info "Installing $package..."
+    log::progress "Installing $package"
+    if ! $(util::is_package_installed $package); then
       util::install_package $package
-      log::info "Done!"
     fi
+    log::progress_done
   done
 }

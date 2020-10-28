@@ -1,8 +1,6 @@
 #!/bin/bash
 
 config::make_link () {
-  log::info "Creating symbolic link for $1"
-
   # If config file is already a link then just delete the link.
   if $(util::link_exists $1) ; then
     rm $1
@@ -46,29 +44,35 @@ config::setup_vim () {
   config::make_link ~/.vim/vimrc_user.vim ../vim/vimrc_user.vim
   config::make_link ~/.vim/help.txt ../vim/help.txt
 
-  log::info "Getting vim-plug"
+  log::progress "Getting vim-plug"
   readonly VIM_PLUG=~/.vim/autoload/plug.vim
   curl -SsfLo $VIM_PLUG --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   if $(util::file_not_exist $VIM_PLUG) ; then
     log::severe "$VIM_PLUG file missing!"
   fi
+  log::progress_done
   
-  log::info "Installing vim plugins"
+  log::progress "Installing vim plugins"
   vim -u $(util::get_path ../vim/plugin.vim) +PlugUpdate +qall
   vim -u $(util::get_path ../vim/plugin.vim) +PlugClean! +qall
+  log::progress_done
 }
 
 config::setup_tmux () {
   config::make_link ~/.tmux.conf ../tmux/tmux.conf
   rm -rf ~/.tmux/plugins
   mkdir -p ~/.tmux/plugins/tpm
-  log::info "Getting tmux-tpm"
+
+  log::progress "Getting tmux-tpm"
   git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  log::info "Installing tmux plugins"
+  log::progress_done
+
+  log::progress "Installing tmux plugins"
   ~/.tmux/plugins/tpm/bin/clean_plugins > /dev/null
   ~/.tmux/plugins/tpm/bin/install_plugins > /dev/null
   ~/.tmux/plugins/tpm/bin/update_plugins all > /dev/null
+  log::progress_done
 }
 
 config::setup_git () {
@@ -80,7 +84,6 @@ config::setup_bash () {
   config::make_link ~/.bash_aliases ../bash/aliases
 
   if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bash$") ]] ; then
-    log::info "Appending to ~/.bashrc"
     echo -e "\n# Load user bash\nif [[ -f ~/.bashrc_user ]] ; then\n  . ~/.bashrc_user\nfi" >> ~/.bashrc
   fi
 }
