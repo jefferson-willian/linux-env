@@ -82,6 +82,7 @@ config::setup_git () {
 config::setup_bash () {
   config::make_link ~/.bashrc_user ../bash/bashrc_user
   config::make_link ~/.bash_aliases ../bash/aliases
+  config::make_link ~/.bash_aliases_user ../bash/aliases_user
 
   if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bashrc$") ]] ; then
     echo -e "\n# Load user bashrc\nif [[ -f ~/.bashrc_user ]] ; then\n  . ~/.bashrc_user\nfi" >> ~/.bashrc

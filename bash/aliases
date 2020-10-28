@@ -1,5 +1,11 @@
-# Git
-alias git-add-credentials='git config --global credential.helper store'
-alias git-remove-credentials='git config --global --unset credential.helper'
+#!/bin/bash
 
-alias vim-help='less ~/.vim/help.txt'
+# Load user aliases
+if [[ -f ~/.bash_aliases_user ]] ; then
+  source ~/.bash_aliases_user
+fi
+
+# Load work aliases
+if [[ -f ~/.bash_work_user ]] ; then
+  source ~/.bash_work_user
+fi
