@@ -62,8 +62,8 @@ config::setup_vim () {
 config::setup_tmux () {
   config::make_link ~/.tmux.conf ../tmux/tmux.conf
   config::make_link ~/.tmux-common.conf ../tmux/tmux-common.conf
-  rm -rf ~/.tmux/plugins
-  mkdir -p ~/.tmux/plugins/tpm
+  mkdir -p ~/.tmux/plugins
+  rm -rf ~/.tmux/plugins/tpm
 
   log::progress "Getting tmux-tpm"
   git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
