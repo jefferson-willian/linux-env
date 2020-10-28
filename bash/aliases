@@ -1,2 +1,5 @@
+# Git
 alias git-add-credentials='git config --global credential.helper store'
 alias git-remove-credentials='git config --global --unset credential.helper'
+
+alias vim-help='less ~/.vim/help.txt'

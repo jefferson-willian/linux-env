@@ -64,6 +64,9 @@ nnoremap <S-left> :bp <enter>
 nnoremap <S-right> :bn <enter>
 nnoremap <C-P> :Files <enter>
 
+" My commands
+command! MyHelp sp ~/.vim/help.txt
+
 " Gruvbox colorscheme
 if !has('nvim')
   set t_Co=256
@@ -84,10 +87,8 @@ let g:airline_section_z = ''
 
 " Sync current directory to current opened file.
 autocmd BufEnter * lcd %:p:h
-" Toggle
-map <C-n> :NERDTreeToggle<CR>
 
-" remove latex symbols
+" Remove latex symbols
 let g:tex_conceal = ""
 
 " Set clipboard support.

@@ -44,6 +44,7 @@ config::setup_vim () {
   config::make_link ~/.vimrc ../vim/vimrc.vim
   config::make_link ~/.vim/plugin.vim ../vim/plugin.vim
   config::make_link ~/.vim/vimrc_user.vim ../vim/vimrc_user.vim
+  config::make_link ~/.vim/help.txt ../vim/help.txt
 
   log::info "Getting vim-plug"
   readonly VIM_PLUG=~/.vim/autoload/plug.vim
@@ -76,6 +77,7 @@ config::setup_git () {
 
 config::setup_bash () {
   config::make_link ~/.bashrc_user ../bash/bashrc_user
+  config::make_link ~/.bash_aliases ../bash/aliases
 
   if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bash$") ]] ; then
     log::info "Appending to ~/.bashrc"
