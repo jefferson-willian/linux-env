@@ -83,7 +83,11 @@ config::setup_bash () {
   config::make_link ~/.bashrc_user ../bash/bashrc_user
   config::make_link ~/.bash_aliases ../bash/aliases
 
-  if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bash$") ]] ; then
-    echo -e "\n# Load user bash\nif [[ -f ~/.bashrc_user ]] ; then\n  . ~/.bashrc_user\nfi" >> ~/.bashrc
+  if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bashrc$") ]] ; then
+    echo -e "\n# Load user bashrc\nif [[ -f ~/.bashrc_user ]] ; then\n  . ~/.bashrc_user\nfi" >> ~/.bashrc
+  fi
+
+  if [[ -z $(cat ~/.bashrc | grep -e "^# Load work bashrc$") ]] ; then
+    echo -e "\n# Load work bashrc\nif [[ -f ~/.bashrc_work ]] ; then\n  . ~/.bashrc_work\nfi" >> ~/.bashrc
   fi
 }
