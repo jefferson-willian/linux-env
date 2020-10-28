@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Load user aliases
-if [[ -f ~/.bash_aliases_user ]] ; then
-  source ~/.bash_aliases_user
+# Load common aliases
+if [[ -f ~/.bash_common_user ]] ; then
+  source ~/.bash_common_user
 fi
 
-# Load work aliases
-if [[ -f ~/.bash_work_user ]] ; then
-  source ~/.bash_work_user
+# Load aliases expansion
+if [[ -f ~/.bash_aliases_expansion ]] ; then
+  source ~/.bash_aliases_expansion
 fi

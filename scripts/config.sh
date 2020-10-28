@@ -41,7 +41,7 @@ config::setup_vim () {
   mkdir -p ~/.vim
   config::make_link ~/.vimrc ../vim/vimrc.vim
   config::make_link ~/.vim/plugin.vim ../vim/plugin.vim
-  config::make_link ~/.vim/vimrc_user.vim ../vim/vimrc_user.vim
+  config::make_link ~/.vim/vimrc-common.vim ../vim/vimrc-common.vim
   config::make_link ~/.vim/help.txt ../vim/help.txt
 
   log::progress "Getting vim-plug"
@@ -81,15 +81,15 @@ config::setup_git () {
 }
 
 config::setup_bash () {
-  config::make_link ~/.bashrc_user ../bash/bashrc_user
+  config::make_link ~/.bashrc-common ../bash/bashrc-common
   config::make_link ~/.bash_aliases ../bash/aliases
-  config::make_link ~/.bash_aliases_user ../bash/aliases_user
+  config::make_link ~/.bash_aliases-common ../bash/aliases-common
 
-  if [[ -z $(cat ~/.bashrc | grep -e "^# Load user bashrc$") ]] ; then
-    echo -e "\n# Load user bashrc\nif [[ -f ~/.bashrc_user ]] ; then\n  . ~/.bashrc_user\nfi" >> ~/.bashrc
+  if [[ -z $(cat ~/.bashrc | grep -e "^# Load common bashrc$") ]] ; then
+    echo -e "\n# Load common bashrc\nif [[ -f ~/.bashrc-common ]] ; then\n  . ~/.bashrc-common\nfi" >> ~/.bashrc
   fi
 
-  if [[ -z $(cat ~/.bashrc | grep -e "^# Load work bashrc$") ]] ; then
-    echo -e "\n# Load work bashrc\nif [[ -f ~/.bashrc_work ]] ; then\n  . ~/.bashrc_work\nfi" >> ~/.bashrc
+  if [[ -z $(cat ~/.bashrc | grep -e "^# Load bashrc expansion$") ]] ; then
+    echo -e "\n# Load bashrc expansion\nif [[ -f ~/.bashrc-expansion ]] ; then\n  . ~/.bashrc-expansion\nfi" >> ~/.bashrc
   fi
 }

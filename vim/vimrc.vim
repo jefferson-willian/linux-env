@@ -1,7 +1,7 @@
-" Load user's vimrc.
-source ~/.vim/vimrc_user.vim
+" Load common vimrc.
+source ~/.vim/vimrc-common.vim
 
-" Load work's vimrc.
-if filereadable(expand("~/.vim/vimrc_work.vim"))
-  exe 'source ~/.vim/vimrc_work.vim'
+" Load vimrc expansion.
+if filereadable(expand("~/.vim/vimrc-expansion.vim"))
+  exe 'source ~/.vim/vimrc-expansion.vim'
 endif
