@@ -1,5 +1,5 @@
 # Fix gruvbox color scheme.
-source ~/GitHub/dotfiles/scripts/gruvbox.sh
+source ~/GitHub/programming-env/scripts/gruvbox.sh
 
 # HSTR configuration.
 export HSTR_CONFIG=hicolor,raw-history-view,prompt-bottom
