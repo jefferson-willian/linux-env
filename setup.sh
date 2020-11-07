@@ -11,6 +11,10 @@ set -e
 ::source scripts/packages.sh
 ::source scripts/config.sh
 
+if [[ $(id -u) -ne 0 ]] ; then
+  log::severe "You need to run the script as super user!"
+fi
+
 packages::install_packages
 
 config::setup_git
