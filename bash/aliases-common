@@ -5,3 +5,4 @@ alias git-add-credentials='git config --global credential.helper store'
 alias git-remove-credentials='git config --global --unset credential.helper'
 
 alias vim-help='echo -e $(<~/.vim/help.txt) | less -R'
+alias tmux-help='echo -e $(<~/.tmux/help.txt) | less -R'
