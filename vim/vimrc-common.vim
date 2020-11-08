@@ -28,19 +28,15 @@ set noswapfile
 set expandtab shiftwidth=2 softtabstop=2 smarttab
 filetype plugin indent on
 
-" Vim default update time
-if !has('nvim')
-  set updatetime=100
-endif
-
-" Default visual bar.
+" Sets default line limiter bar width and specific for each filetype.
 set colorcolumn=80
-
-" Visual bar for each filetype.
 augroup colorcolumn100
   autocmd!
   autocmd FileType soy,java set colorcolumn=100
 augroup END
+
+" Timeout for key combo.
+set ttimeoutlen=50
 
 " Allow change buffers without saving
 set hidden
@@ -48,10 +44,11 @@ set hidden
 " Enable syntax
 syntax enable
 
-" Don't show -- INSERT -- text because vim-powerline already show this.
+" Don't show -- INSERT -- text because vim-airline already show this.
 set noshowmode
 
 " Necessary for airline in vim.
+" TODO: check if this is really needed.
 if !has('nvim')
   set laststatus=2
 endif
@@ -64,16 +61,9 @@ nnoremap <S-left> :bp <enter>
 nnoremap <S-right> :bn <enter>
 nnoremap <C-P> :Files <enter>
 
-" My commands
-command! MyHelp sp ~/.vim/help.txt
-
 " Gruvbox colorscheme
-if !has('nvim')
-  set t_Co=256
-endif
 set background=dark
 let g:gruvbox_contrast_dark="soft"
-let g:gruvbox_contrast_light="soft"
 colorscheme gruvbox
 
 " Empty value to disable preview window altogether
@@ -90,17 +80,5 @@ let g:airline_section_z = ''
 " Sync current directory to current opened file.
 autocmd BufEnter * lcd %:p:h
 
-" Remove latex symbols
-let g:tex_conceal = ""
-
 " Set clipboard support.
 set clipboard=unnamedplus
-
-" WSL yank support.
-let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
-if executable(s:clip)
-    augroup WSLYank
-        autocmd!
-        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
-    augroup END
-end
