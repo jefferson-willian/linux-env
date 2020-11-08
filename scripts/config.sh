@@ -54,8 +54,8 @@ config::setup_vim () {
   log::progress_done
   
   log::progress "Installing vim plugins"
-  vim -Nu $(util::get_path ../vim/plugin.vim) +'PlugUpdate --sync' +qall &> /dev/null
-  vim -Nu $(util::get_path ../vim/plugin.vim) +'PlugClean! --sync' +qall &> /dev/null
+  vim -u ~/.vim/plugin.vim +'PlugUpdate --sync' +qall &> /dev/null
+  vim -u ~/.vim/plugin.vim +'PlugClean!' +qall &> /dev/null
   log::progress_done
 }
 
