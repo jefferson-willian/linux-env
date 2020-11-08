@@ -93,3 +93,15 @@ let g:airline_section_c = ''
 let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
+
+" VIMDIFF CONFIG ---------------------------------------------------------------
+"
+"
+if &diff
+  " Disable airline in diff mode.
+  let g:airline_disable_statusline = 1
+  let g:airline_extensions = []
+  " Remove navigations to act on vim windows instead.
+  nnoremap <S-left> <C-w>h
+  nnoremap <S-right> <C-w>l
+endif
