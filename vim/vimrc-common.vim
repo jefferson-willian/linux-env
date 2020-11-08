@@ -1,6 +1,9 @@
 " Load Plugins
 source ~/.vim/plugin.vim
 
+" BASICS -----------------------------------------------------------------------
+"
+"
 " Set to auto read when the file is changed from the outside
 set autoread
 
@@ -56,16 +59,30 @@ endif
 " Don't save netrwhist files.
 let g:netrw_dirhistmax=0
 
-" ----------- MAPS ----------- "
+" Sync current directory to current opened file.
+autocmd BufEnter * lcd %:p:h
+
+" Set clipboard support.
+set clipboard=unnamedplus
+
+" KEY MAPPING ------------------------------------------------------------------
+"
+"
 nnoremap <S-left> :bp <enter>
 nnoremap <S-right> :bn <enter>
 nnoremap <C-P> :Files <enter>
 
+" COLOR SCHEME -----------------------------------------------------------------
+"
+"
 " Gruvbox colorscheme
 set background=dark
 let g:gruvbox_contrast_dark="soft"
 colorscheme gruvbox
 
+" PLUGINS CONFIG ---------------------------------------------------------------
+"
+"
 " Empty value to disable preview window altogether
 let g:fzf_preview_window = ''
 
@@ -76,9 +93,3 @@ let g:airline_section_c = ''
 let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
-
-" Sync current directory to current opened file.
-autocmd BufEnter * lcd %:p:h
-
-" Set clipboard support.
-set clipboard=unnamedplus
