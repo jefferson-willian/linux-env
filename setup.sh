@@ -12,14 +12,15 @@ set -e
 ::source scripts/config.sh
 
 if [[ $(id -u) -ne 0 ]] ; then
-  log::severe "You need to run the script as super user!"
+  sudo "$0" "$@"
+else
+
+  packages::install_packages
+
+  config::setup_git
+  config::setup_vim
+  config::setup_tmux
+  config::setup_bash
 fi
-
-packages::install_packages
-
-config::setup_git
-config::setup_vim
-config::setup_tmux
-config::setup_bash
 
 set +e
