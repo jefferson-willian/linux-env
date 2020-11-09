@@ -72,6 +72,13 @@ nnoremap <S-left> :bp <enter>
 nnoremap <S-right> :bn <enter>
 nnoremap <C-P> :Files <enter>
 
+" delete without overwritting registers
+nnoremap d "_d
+vnoremap d "_d
+
+" paste on selection without overwritting registers
+vnoremap p "_dP
+
 " COLOR SCHEME -----------------------------------------------------------------
 "
 "
