@@ -20,4 +20,4 @@ if [[ $- =~ .*i.* ]]; then bind -x '"\C-r": "hstrwsl"'; fi
 
 export FZF_DEFAULT_COMMAND='rg --type-add "png:*.png" --type-not png --files --hidden --follow'
 
-precmd() { history -a; history -n }
+precmd() { history -a; history -n; }
