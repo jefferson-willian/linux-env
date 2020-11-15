@@ -53,9 +53,6 @@ set noshowmode
 " Don't save netrwhist files.
 let g:netrw_dirhistmax=0
 
-" Sync current directory to current opened file.
-autocmd BufEnter * lcd %:p:h
-
 " Set clipboard support.
 set clipboard=unnamedplus
 
@@ -64,7 +61,7 @@ set clipboard=unnamedplus
 "
 nnoremap <S-left> :bp <enter>
 nnoremap <S-right> :bn <enter>
-nnoremap <C-P> :Files <enter>
+nnoremap <C-P> :CtrlP <enter>
 
 " delete without overwritting registers
 nnoremap d "_d
@@ -72,6 +69,13 @@ vnoremap d "_d
 
 " paste on selection without overwritting registers
 vnoremap p "_dP
+
+" COMMANDS ---------------------------------------------------------------------
+
+" Open CtrlP on the same directory as the current opened file.
+command! -nargs=* -complete=file CtrlP lcd %:p:h
+                                       \| exec 'Files <args>'
+                                       \| exec 'lcd' getcwd(-1) 
 
 " COLOR SCHEME -----------------------------------------------------------------
 "
