@@ -50,12 +50,6 @@ syntax enable
 " Don't show -- INSERT -- text because vim-airline already show this.
 set noshowmode
 
-" Necessary for airline in vim.
-" TODO: check if this is really needed.
-if !has('nvim')
-  set laststatus=2
-endif
-
 " Don't save netrwhist files.
 let g:netrw_dirhistmax=0
 
