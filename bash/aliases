@@ -1,11 +1,4 @@
 #!/bin/bash
 
-# Load common aliases
-if [[ -f ~/.bash_aliases-common ]] ; then
-  source ~/.bash_aliases-common
-fi
-
-# Load aliases expansion
-if [[ -f ~/.bash_aliases-expansion ]] ; then
-  source ~/.bash_aliases-expansion
-fi
+# Load all aliases from .bash-aliases folder.
+source ~/.bash-aliases/*
