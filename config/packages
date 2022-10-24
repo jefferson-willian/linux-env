@@ -1,0 +1,14 @@
+# Essentials
+git
+vim
+tmux
+
+# Fonts
+fonts-hack-ttf
+
+# Bash history
+hstr  # suggestion box
+
+# Vim-related
+fzf  # a finder for Ctrl-P
+ripgrep  # optimize for fzf
