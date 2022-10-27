@@ -9,7 +9,7 @@ util::install_package () {
 }
 
 util::is_package_installed () {
-  [[ ! -z $(dpkg -l | grep -i "$1") ]]
+  [[ ! -z $(dpkg -s "$1" 2> /dev/null) ]]
 }
 ################################################################################
 #
