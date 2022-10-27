@@ -1,7 +1,8 @@
 # Essentials
+curl
 git
-vim
 tmux
+vim
 
 # Fonts
 fonts-hack-ttf
