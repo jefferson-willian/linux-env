@@ -6,10 +6,10 @@ set -e
   source "$(dirname -- "$(readlink -f -- $BASH_SOURCE)")/$1"
 }
 
-::source scripts/log.sh
-::source scripts/util.sh
-::source scripts/packages.sh
-::source scripts/config.sh
+::source lib/log.sh
+::source lib/util.sh
+::source lib/packages.sh
+::source lib/config.sh
 
 packages::install_packages
 
