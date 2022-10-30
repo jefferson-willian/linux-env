@@ -40,9 +40,6 @@ config::setup_tmux () {
   log::progress_done
 }
 
-config::setup_git () {
-  util::make_link_safe ~/.gitconfig ../config/gitconfig
-}
 
 config::setup_ssh () {
   util::make_link_safe ~/.ssh ../config/ssh
