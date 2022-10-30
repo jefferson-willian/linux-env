@@ -14,7 +14,6 @@ set -e
 
 setup::packages
 setup::git
-setup::ssh
 setup::vim
 setup::tmux
 setup::bash
