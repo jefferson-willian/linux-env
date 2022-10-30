@@ -88,8 +88,9 @@ colorscheme gruvbox
 " PLUGINS CONFIG ---------------------------------------------------------------
 "
 "
-" Empty value to disable preview window altogether
-let g:fzf_preview_window = ''
+" fzf
+let g:fzf_preview_window = []
+let g:fzf_layout = { 'down': '40%' }
 
 " vim-airline
 let g:airline_powerline_fonts=1
