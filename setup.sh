@@ -14,6 +14,7 @@ set -e
 packages::install_packages
 
 config::setup_git
+config::setup_ssh
 config::setup_vim
 config::setup_tmux
 config::setup_bash

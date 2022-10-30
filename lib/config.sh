@@ -44,6 +44,10 @@ config::setup_git () {
   util::make_link_safe ~/.gitconfig ../config/gitconfig
 }
 
+config::setup_ssh () {
+  util::make_link_safe ~/.ssh ../config/ssh
+}
+
 config::setup_bash () {
   util::make_link_safe ~/.bashrc-common ../config/bash/bashrc-common
   util::make_link_safe ~/.bash_aliases ../config/bash/aliases
