@@ -5,6 +5,7 @@ htop
 tmux
 vim
 vim-gtk3  # needed for clipboard support
+xsel  # tmux-yank dependency
 
 # Fonts
 fonts-hack-ttf
