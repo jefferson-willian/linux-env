@@ -2,17 +2,6 @@
 
 ################################################################################
 #
-# PACKAGE MANAGEMENT
-#
-util::install_package () {
-  sudo apt-get -y install $1 > /dev/null
-}
-
-util::is_package_installed () {
-  [[ ! -z $(dpkg -s "$1" 2> /dev/null) ]]
-}
-################################################################################
-#
 # FILE MANAGEMENT
 #
 util::file_exists () {
