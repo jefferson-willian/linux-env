@@ -3,15 +3,13 @@
 set -e
 
 ::source () {
-  source "$(dirname -- "$(readlink -f -- $BASH_SOURCE)")/$1"
+  for f in "$@"; do
+    source "$(dirname -- "$(readlink -f -- $BASH_SOURCE)")/$f"
+  done
 }
 
-::source lib/log.sh
-::source lib/util.sh
-::source lib/packages.sh
-::source lib/config.sh
-
-::source setup/bash.sh
+::source lib/*.sh
+::source setup/*.sh
 
 packages::install_packages "$(dirname -- "$(readlink -f -- $0)")/config/packages"
 
