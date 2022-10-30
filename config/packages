@@ -4,6 +4,7 @@ git
 htop
 tmux
 vim
+vim-gtk3  # needed for clipboard support
 
 # Fonts
 fonts-hack-ttf
