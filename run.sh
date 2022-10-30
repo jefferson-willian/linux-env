@@ -11,8 +11,7 @@ set -e
 ::source lib/*.sh
 ::source setup/*.sh
 
-packages::install_packages "$(dirname -- "$(readlink -f -- $0)")/config/packages"
-
+setup::packages
 setup::git
 setup::ssh
 setup::vim
