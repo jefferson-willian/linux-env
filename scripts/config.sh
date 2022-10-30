@@ -39,10 +39,10 @@ config::make_link () {
 
 config::setup_vim () {
   mkdir -p ~/.vim
-  config::make_link ~/.vimrc ../vim/vimrc.vim
-  config::make_link ~/.vim/plugin.vim ../vim/plugin.vim
-  config::make_link ~/.vim/vimrc-common.vim ../vim/vimrc-common.vim
-  config::make_link ~/.vim/help.txt ../vim/help.txt
+  config::make_link ~/.vimrc ../config/vim/vimrc.vim
+  config::make_link ~/.vim/plugin.vim ../config/vim/plugin.vim
+  config::make_link ~/.vim/vimrc-common.vim ../config/vim/vimrc-common.vim
+  config::make_link ~/.vim/help.txt ../config/vim/help.txt
 
   log::progress "Getting vim-plug"
   readonly VIM_PLUG=~/.vim/autoload/plug.vim
