@@ -3,9 +3,12 @@
 set -e
 
 ::source () {
-  files="$(ls $(dirname -- "$(readlink -f -- $BASH_SOURCE)")/$1)"
-  for f in $files; do
-    source "$f"
+  for i in $@; do
+    files="$(ls $(dirname -- "$(readlink -f -- $BASH_SOURCE)")/$i)"
+    for f in $files; do
+      echo $f
+      source "$f"
+    done
   done
 }
 
