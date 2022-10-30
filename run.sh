@@ -11,12 +11,14 @@ set -e
 ::source lib/packages.sh
 ::source lib/config.sh
 
+::source setup/bash.sh
+
 packages::install_packages "$(dirname -- "$(readlink -f -- $0)")/config/packages"
 
 config::setup_git
 config::setup_ssh
 config::setup_vim
 config::setup_tmux
-config::setup_bash
+setup::bash
 
 set +e
