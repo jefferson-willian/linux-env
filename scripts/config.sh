@@ -84,6 +84,7 @@ config::setup_git () {
 config::setup_bash () {
   config::make_link ~/.bashrc-common ../bash/bashrc-common
   config::make_link ~/.bash_aliases ../bash/aliases
+  config::make_link ~/.gruvbox gruvbox.sh
   mkdir -p ~/.bash-aliases
   config::make_link ~/.bash-aliases/common ../bash/aliases-common
 
