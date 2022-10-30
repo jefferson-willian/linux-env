@@ -1,48 +1,11 @@
 #!/bin/bash
 
-config::make_link () {
-  # If config file is already a link then just delete the link.
-  if $(util::link_exists $1) ; then
-    rm $1
-  fi
-
-  # Backup file if it exists
-  if $(util::file_exists $1) ; then
-    util::get_confirmation \
-      "File named $1 already exists. Do you want to create a backup?"
-    # Backup and delete file
-    if $(util::has_confirmed) ; then
-      util::backup_file $1
-      rm $1
-    else
-      log::severe \
-        "Can't proceed because file with the same config name exists."
-    fi
-  fi
-
-  # Backup directory if it exists
-  if $(util::directory_exists $1) ; then
-    util::get_confirmation \
-      "Directory named $1 already exists. Do you want to create a backup?"
-    # Backup and delete directory
-    if $(util::has_confirmed) ; then
-      util::backup_directory $1
-      rm -r $1
-    else
-      log::severe \
-        "Can't proceed because directory with the same config name exists."
-    fi
-  fi
-
-  ln -s $(util::get_path "$2") "$1"
-}
-
 config::setup_vim () {
   mkdir -p ~/.vim
-  config::make_link ~/.vimrc ../config/vim/vimrc.vim
-  config::make_link ~/.vim/plugin.vim ../config/vim/plugin.vim
-  config::make_link ~/.vim/vimrc-common.vim ../config/vim/vimrc-common.vim
-  config::make_link ~/.vim/help.txt ../config/vim/help.txt
+  util::make_link_safe ~/.vimrc ../config/vim/vimrc.vim
+  util::make_link_safe ~/.vim/plugin.vim ../config/vim/plugin.vim
+  util::make_link_safe ~/.vim/vimrc-common.vim ../config/vim/vimrc-common.vim
+  util::make_link_safe ~/.vim/help.txt ../config/vim/help.txt
 
   log::progress "Getting vim-plug"
   readonly VIM_PLUG=~/.vim/autoload/plug.vim
@@ -62,9 +25,9 @@ config::setup_vim () {
 config::setup_tmux () {
   mkdir -p ~/.tmux/plugins
   rm -rf ~/.tmux/plugins/tpm
-  config::make_link ~/.tmux.conf ../config/tmux/tmux.conf
-  config::make_link ~/.tmux-common.conf ../config/tmux/tmux-common.conf
-  config::make_link ~/.tmux/help.txt ../config/tmux/help.txt
+  util::make_link_safe ~/.tmux.conf ../config/tmux/tmux.conf
+  util::make_link_safe ~/.tmux-common.conf ../config/tmux/tmux-common.conf
+  util::make_link_safe ~/.tmux/help.txt ../config/tmux/help.txt
 
   log::progress "Getting tmux-tpm"
   git clone --quiet https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -78,15 +41,15 @@ config::setup_tmux () {
 }
 
 config::setup_git () {
-  config::make_link ~/.gitconfig ../config/gitconfig
+  util::make_link_safe ~/.gitconfig ../config/gitconfig
 }
 
 config::setup_bash () {
-  config::make_link ~/.bashrc-common ../config/bash/bashrc-common
-  config::make_link ~/.bash_aliases ../config/bash/aliases
-  config::make_link ~/.gruvbox gruvbox.sh
+  util::make_link_safe ~/.bashrc-common ../config/bash/bashrc-common
+  util::make_link_safe ~/.bash_aliases ../config/bash/aliases
+  util::make_link_safe ~/.gruvbox gruvbox.sh
   mkdir -p ~/.bash-aliases
-  config::make_link ~/.bash-aliases/common ../config/bash/aliases-common
+  util::make_link_safe ~/.bash-aliases/common ../config/bash/aliases-common
 
   if [[ -z $(cat ~/.bashrc | grep -e "^# Load common bashrc$") ]] ; then
     echo -e "\n# Load common bashrc\nif [[ -f ~/.bashrc-common ]] ; then\n  . ~/.bashrc-common\nfi" >> ~/.bashrc
