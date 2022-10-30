@@ -1,6 +1,6 @@
 #!/bin/bash
 
-config::setup_tmux () {
+setup::tmux () {
   mkdir -p ~/.tmux/plugins
   rm -rf ~/.tmux/plugins/tpm
   util::make_link_safe ~/.tmux.conf ../config/tmux/tmux.conf

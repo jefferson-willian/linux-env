@@ -16,7 +16,7 @@ packages::install_packages "$(dirname -- "$(readlink -f -- $0)")/config/packages
 setup::git
 setup::ssh
 setup::vim
-config::setup_tmux
+setup::tmux
 setup::bash
 
 set +e
