@@ -78,7 +78,7 @@ config::setup_tmux () {
 }
 
 config::setup_git () {
-  config::make_link ~/.gitconfig ../git/gitconfig
+  config::make_link ~/.gitconfig ../config/gitconfig
 }
 
 config::setup_bash () {
