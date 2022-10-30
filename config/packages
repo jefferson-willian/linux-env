@@ -1,6 +1,7 @@
 # Essentials
 curl
 git
+htop
 tmux
 vim
 
