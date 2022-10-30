@@ -3,8 +3,9 @@
 set -e
 
 ::source () {
-  for f in "$@"; do
-    source "$(dirname -- "$(readlink -f -- $BASH_SOURCE)")/$f"
+  files="$(ls $(dirname -- "$(readlink -f -- $BASH_SOURCE)")/$1)"
+  for f in $files; do
+    source "$f"
   done
 }
 
