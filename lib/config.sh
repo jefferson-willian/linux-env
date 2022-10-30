@@ -39,8 +39,3 @@ config::setup_tmux () {
   ~/.tmux/plugins/tpm/bin/update_plugins all > /dev/null
   log::progress_done
 }
-
-
-config::setup_ssh () {
-  util::make_link_safe ~/.ssh ../config/ssh
-}
