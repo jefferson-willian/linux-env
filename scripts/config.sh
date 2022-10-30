@@ -82,11 +82,11 @@ config::setup_git () {
 }
 
 config::setup_bash () {
-  config::make_link ~/.bashrc-common ../bash/bashrc-common
-  config::make_link ~/.bash_aliases ../bash/aliases
+  config::make_link ~/.bashrc-common ../config/bash/bashrc-common
+  config::make_link ~/.bash_aliases ../config/bash/aliases
   config::make_link ~/.gruvbox gruvbox.sh
   mkdir -p ~/.bash-aliases
-  config::make_link ~/.bash-aliases/common ../bash/aliases-common
+  config::make_link ~/.bash-aliases/common ../config/bash/aliases-common
 
   if [[ -z $(cat ~/.bashrc | grep -e "^# Load common bashrc$") ]] ; then
     echo -e "\n# Load common bashrc\nif [[ -f ~/.bashrc-common ]] ; then\n  . ~/.bashrc-common\nfi" >> ~/.bashrc
