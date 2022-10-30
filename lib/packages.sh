@@ -12,7 +12,7 @@ function packages::install_packages() {
   while read -r line
   do
     package=$(echo "$line" | awk '{print $1}')
-    if [ ! -z $package ] && [ ! "#" = $package ] ; then
+    if [[ ! -z $package ]] && [[ ! "#" = $package ]] ; then
       if ! $(packages::is_package_installed $package); then
         log::progress "Installing $package"
         packages::install_package $package
