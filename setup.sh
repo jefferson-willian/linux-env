@@ -11,7 +11,7 @@ set -e
 ::source lib/packages.sh
 ::source lib/config.sh
 
-packages::install_packages
+packages::install_packages "$(dirname -- "$(readlink -f -- $0)")/config/packages"
 
 config::setup_git
 config::setup_ssh

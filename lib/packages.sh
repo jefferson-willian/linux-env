@@ -21,5 +21,5 @@ function packages::install_packages() {
         log::info "$package already installed!"
       fi
     fi
-  done < "$(dirname -- "$0")/config/packages"
+  done < "$1"
 }
