@@ -70,6 +70,13 @@ vnoremap d "_d
 " paste on selection without overwritting registers
 vnoremap p "_dP
 
+" fix shift + arrow not working inside tmux session
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
 " COMMANDS ---------------------------------------------------------------------
 
 " Open CtrlP on the same directory as the current opened file.
