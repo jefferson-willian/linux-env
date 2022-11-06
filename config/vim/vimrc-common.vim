@@ -35,7 +35,7 @@ filetype plugin indent on
 set colorcolumn=80
 augroup colorcolumn100
   autocmd!
-  autocmd FileType soy,java,kt set colorcolumn=100
+  autocmd FileType soy,java,kotlin set colorcolumn=100
 augroup END
 
 " Timeout for key combo.
