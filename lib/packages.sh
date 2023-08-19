@@ -1,8 +1,8 @@
 #!/bin/bash
 
 function packages::install_package () {
-  readonly _has_sudo=$(sudo -n true 2> /dev/null && echo 0 || echo 1)
-  if [[ $_has_sudo -ne 0 ]]; then
+  local has_sudo=$(sudo -n true 2> /dev/null && echo 0 || echo 1)
+  if [[ $has_sudo -ne 0 ]]; then
     log::info "Please run as root to install packages"
   fi
   sudo apt-get -y install $1 > /dev/null
