@@ -14,7 +14,10 @@ set -e
 ::source lib/*.sh
 ::source setup/*.sh
 
+# Install all packages
 setup::packages
+
+# Set configs for git, vim, tmux and bash.
 setup::git
 setup::vim
 setup::tmux
